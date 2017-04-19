@@ -13,6 +13,10 @@ import {Home} from './components/Home';
 class App extends React.Component{
     // render () - called by react whenever it feels it has to render the component
     render(){
+        let user = {
+            name: "Anna",
+            hobbies: ["Soccer", "Swim","Sing"]
+        }
         // return what should be rendered
         // This is JSX - Javascript mixed with XML/HTML
         // Following code is equivalent: to
@@ -27,7 +31,9 @@ class App extends React.Component{
                 </div>
                 <div className="row">
                     <div className="col-xs-10 col-xs-offset-1">
-                        <Home/>
+                        <Home name={"Prateek"} age={25} user={user}>
+                            <p>Check how to access this element in Home.js</p>
+                        </Home>
                     </div>
                 </div>
             </div>
