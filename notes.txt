@@ -1,0 +1,7 @@
+1. Complete the configuration.
+2. React Coding Starts from index.js
+3. Create component in index.js that we want to be displayed in HTML page.
+4. Then go to index.html page.
+5. Create a hook where we want to render our component.
+6. ReactJS doesn't necessarily create a SPA, we can tell where to render each component in our view.
+    We do not have to control our view.
