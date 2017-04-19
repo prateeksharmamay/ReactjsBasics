@@ -3,6 +3,8 @@
  */
 import React from "react";
 import {render} from "react-dom";
+import '../css/main.scss'
+
 
 class App extends React.Component{
     // render () - called by react whenever it feels it has to render the component
@@ -13,9 +15,15 @@ class App extends React.Component{
         // document.createElement("div");
         // Following code is convenient way to do above command.
         return(
-            <div>
-                <h1>hello!</h1>
+            <div className="container">
+                <div className="row">
+                    <div className="col-xs-10 col-xs-offset-1">
+                        <h1>hello!</h1>
+                    </div>
+                </div>
             </div>
         );
     }
 }
+
+render(<App/>, window.document.getElementById("app"));
