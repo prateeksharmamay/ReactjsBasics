@@ -9,7 +9,33 @@ import {Header} from './components/Header';
 import {Home} from './components/Home';
 
 
+class App extends React.Component{
+    // render () - called by react whenever it feels it has to render the component
+    render(){
+        // return what should be rendered
+        // This is JSX - Javascript mixed with XML/HTML
+        // Following code is equivalent: to
+        // document.createElement("div");
+        // Following code is convenient way to do above command.
+        return(
+            <div className="container">
+                <div className="row">
+                    <div className="col-xs-10 col-xs-offset-1">
+                        <Header/>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col-xs-10 col-xs-offset-1">
+                        <Home name={"Prateek"} age={25} />
+                    </div>
+                </div>
+            </div>
+        );
+    }
+}
 
+
+/* Code for Props
 class App extends React.Component{
     // render () - called by react whenever it feels it has to render the component
     render(){
@@ -39,6 +65,6 @@ class App extends React.Component{
             </div>
         );
     }
-}
+}*/
 
 render(<App/>, window.document.getElementById("app"));
