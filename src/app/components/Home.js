@@ -5,6 +5,19 @@ import React from 'react';
 import PropTypes from 'prop-types'
 
 export class Home extends React.Component{
+
+    // es6 specific
+    constructor(props){
+        super();
+        this.age = props.age;
+    }
+
+    onMakeOlder(){
+        this.age+= 3;
+        console.log(this.age);
+        // Onclick this function our view is not changing because react only changes if the "STATE" has changes
+    }
+
     render(){
         let data = this.props;
         console.log(this.props);
@@ -12,7 +25,12 @@ export class Home extends React.Component{
             <div>
                 <p>In a New Component</p>
                 <p>Your name: {data.name}</p>
-                <p>Your age: {data.age}</p>
+                <p>Your age: {this.age}</p>
+                {/*Because of scope we have to bind the current 'this' to the current run of function*/}
+                {/*<button onClick={this.onMakeOlder.bind(this)} className="btn btn-primary">Make Me Older</button>*/}
+
+                <button onClick={() => this.onMakeOlder()} className="btn btn-primary">Make Me Older</button>
+                {/*Another way to run this*/}
             </div>
         );
     }
