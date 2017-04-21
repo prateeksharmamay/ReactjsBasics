@@ -11,7 +11,8 @@ export class Home extends React.Component{
         super();
         this.state = {
             age: props.initialAge,
-            status: 0
+            status: 0,
+            homeLink: "ChangedName"
         }
     }
 
@@ -22,6 +23,10 @@ export class Home extends React.Component{
         /*this.age+= 3;
         console.log(this.age);*/
         // Onclick this function our view is not changing because react only changes if the "STATE" has changes
+    }
+
+    onChange(){
+        this.props.changeLink(this.state.homeLink);
     }
 
     render(){
@@ -40,6 +45,8 @@ export class Home extends React.Component{
                 {/*Another way to run this*/}
                 <hr/>
                 <button onClick={this.props.greet} className="btn btn-primary">Greet</button>
+                <hr/>
+                <button onClick={this.onChange.bind(this)} className="btn btn-primary">Change HomeLink Name</button>
             </div>
         );
     }
