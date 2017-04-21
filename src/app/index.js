@@ -44,7 +44,7 @@ class App extends React.Component{
                 </div>
                 <div className="row">
                     <div className="col-xs-10 col-xs-offset-1">
-                        <Home changeLink={this.onChangeLinkName.bind(this)} name={"Prateek"} initialAge={25} greet={this.onGreet}/>
+                        <Home initialLinkName={this.state.homeLink} changeLink={this.onChangeLinkName.bind(this)} name={"Prateek"} initialAge={25} greet={this.onGreet}/>
                     </div>
                 </div>
             </div>

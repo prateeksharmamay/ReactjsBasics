@@ -12,7 +12,7 @@ export class Home extends React.Component{
         this.state = {
             age: props.initialAge,
             status: 0,
-            homeLink: "ChangedName"
+            homeLink: props.initialLinkName
         }
     }
 
@@ -25,13 +25,19 @@ export class Home extends React.Component{
         // Onclick this function our view is not changing because react only changes if the "STATE" has changes
     }
 
-    onChange(){
+    onChangeLink(){
         this.props.changeLink(this.state.homeLink);
+    }
+
+    onHandleChange(event){
+        this.setState({
+            homeLink: event.target.value
+        });
     }
 
     render(){
         let data = this.props;
-        console.log(this.props);
+        // console.log(this.props);
         return(
             <div>
                 <p>In a New Component</p>
@@ -41,12 +47,26 @@ export class Home extends React.Component{
                 {/*Because of scope we have to bind the current 'this' to the current run of function*/}
                 {/*<button onClick={this.onMakeOlder.bind(this)} className="btn btn-primary">Make Me Older</button>*/}
 
-                <button onClick={() => this.onMakeOlder()} className="btn btn-primary">Make Me Older</button>
+                <button
+                    onClick={() => this.onMakeOlder()}
+                    className="btn btn-primary">
+                    Make Me Older
+                </button>
                 {/*Another way to run this*/}
                 <hr/>
-                <button onClick={this.props.greet} className="btn btn-primary">Greet</button>
+                <button onClick={this.props.greet}
+                        className="btn btn-primary">
+                    Greet
+                </button>
                 <hr/>
-                <button onClick={this.onChange.bind(this)} className="btn btn-primary">Change HomeLink Name</button>
+                <input type="text"
+                       value={this.state.homeLink}
+                       onChange={(event) => this.onHandleChange(event)}
+                />
+                <button onClick={this.onChangeLink.bind(this)}
+                        className="btn btn-primary">
+                    Change HomeLink Name
+                </button>
             </div>
         );
     }
@@ -55,7 +75,9 @@ export class Home extends React.Component{
 Home.propTypes = {
     name: PropTypes.string,
     initialAge: PropTypes.number,
-    greet: PropTypes.func
+    greet: PropTypes.func,
+    changeLink: PropTypes.func,
+    initialLinkName: PropTypes.string
 }
 
 /* Code for Props Practice
