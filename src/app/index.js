@@ -10,6 +10,11 @@ import {Home} from './components/Home';
 
 
 class App extends React.Component{
+
+    onGreet(){
+        alert("Hello");
+    }
+
     // render () - called by react whenever it feels it has to render the component
     render(){
         // return what should be rendered
@@ -26,7 +31,7 @@ class App extends React.Component{
                 </div>
                 <div className="row">
                     <div className="col-xs-10 col-xs-offset-1">
-                        <Home name={"Prateek"} initialAge={25} />
+                        <Home name={"Prateek"} initialAge={25} greet={this.onGreet}/>
                     </div>
                 </div>
             </div>
